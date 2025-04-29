@@ -20,7 +20,10 @@ func catcher(c chan int) {
 }
 
 func main() {
-	c := make(chan int)
+	// 无缓冲通道
+	//c := make(chan int)
+	// 有缓冲通道
+	c := make(chan int, 3)
 	go thrower(c)
 	go catcher(c)
 	time.Sleep(100 * time.Millisecond)
